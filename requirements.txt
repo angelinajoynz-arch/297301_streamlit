@@ -1,0 +1,7 @@
+# Streamlit App requirements
+pandas >= 2.0.0
+numpy
+streamlit
+pickle
+matplotlib
+shap
