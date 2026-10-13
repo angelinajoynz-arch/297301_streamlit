@@ -88,7 +88,7 @@ def customer_blurb():
             st.write("There is no immediate concern for this customer as they are within acceptable ranges for " + string_nonissues + ".")
 # -- end customer_blurb() function
 
-st.title("Customer Churn Analysis")
+st.markdown("<center><h1 style='font-family: Georgia, serif; font-weight: normal; color: #656280;'>Customer Churn Analysis</h1></center>", unsafe_allow_html=True)
 
 filtered_index = None
 feature_vals = None

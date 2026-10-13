@@ -6,7 +6,11 @@ st.markdown(
     """
     <style>
     [data-testid="stSidebar"] {
-        background-color: #fff;
+        background-color: #fefefc;
+    }
+
+    .stApp {
+        background-color: #F9F9F9;
     }
     </style>
     """,
@@ -21,7 +25,7 @@ customer_insights = st.Page('views/waterfalls.py', title='Customer Insights', ic
 model_insights = st.Page('views/model_insights.py', title='Churn Drivers', icon='📈')
 pull_report = st.Page('views/pullreport.py', title='Pull Report', icon='📄')
 
-pg = st.navigation([home_page, dashboard_page, customer_insights, model_insights, pull_report])
+pg = st.navigation([home_page, dashboard_page, model_insights, customer_insights, pull_report])
 
 pg.run()
 

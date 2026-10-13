@@ -47,6 +47,8 @@ available_risk_tiers = ['Low', 'Medium', 'High']
 available_filters = ['Cart Abandonment Rate', 'Lifetime Value', 'Total Purchases', 'Email Open Rate', 
                      'Session Duration Avg', 'Pages Per Session', 'Credit Balance']
 
+st.markdown("<center><h1 style='font-family: Georgia, serif; font-weight: normal; color: #656280;'>Pull Report</h1></center>", unsafe_allow_html=True)
+st.write('You can filter the results by selecting risk levels and features below. There is a minimum of one risk level and one feature required for export.')
 st.write('##### Select customer risk level(s):')
 cols1 = st.columns(3)
 for index, tier in enumerate(available_risk_tiers):

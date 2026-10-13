@@ -7,8 +7,8 @@ import shap
 
 st.set_page_config(layout="wide")
 
-st.title("Churn Drivers")
-
+st.markdown("<center><h1 style='font-family: Georgia, serif; font-weight: normal; color: #656280;'>Churn Drivers</h1></center>", unsafe_allow_html=True)
+st.write('These are the key factors that influence customer churn. Where a dashed, red line is present in a plot, it indicates the threshold (tipping point) for each feature where a customer is increasingly likely to churn.')
 # Import shap values
 @st.cache_data  # Cache this so it doesn't reload on every user click
 def load_shap_data():
@@ -44,6 +44,10 @@ features_to_plot = [
     "Credit_Balance"
 ]
 
+colour_palettes1 = ['#DDC3E3','#FFC697','#CDE9DC']
+colour_palettes2 = ['#C8CEEE','#CBD3AD','#DEB499']
+colour_palettes3 = ['#FFD4D9']
+
 row1_features = features_to_plot[0:3]
 row2_features = features_to_plot[3:6]
 row3_features = features_to_plot[6:9]
@@ -53,8 +57,7 @@ cols_row1 = st.columns(3)
 for i, feature in enumerate(row1_features):
     with cols_row1[i]:
         fig, ax = plt.subplots(figsize=(4, 3))  # Smaller size so they fit nicely
-        shap.plots.scatter(shap_explains[:, feature, 1], ax=ax, show=False)
-        
+        shap.plots.scatter(shap_explains[:, feature, 1], ax=ax, color=colour_palettes1[i], hist=False, show=False)
         if feature == "Cart_Abandonment_Rate":
             ax.axvline(x=70, color='crimson', linestyle='--', linewidth=1, label='70')
         elif feature == "Email_Open_Rate":
@@ -76,8 +79,7 @@ cols_row2 = st.columns(3)
 for i, feature in enumerate(row2_features):
     with cols_row2[i]:
         fig, ax = plt.subplots(figsize=(4, 3))
-        shap.plots.scatter(shap_explains[:, feature, 1], ax=ax, show=False)
-
+        shap.plots.scatter(shap_explains[:, feature, 1], ax=ax, color=colour_palettes2[i], hist=False, show=False)
         if feature == "Session_Duration_Avg":
             ax.axvline(x=20, color='crimson', linestyle='--', linewidth=1, label='20')
         elif feature == "Total_Purchases":
@@ -100,8 +102,7 @@ cols_row3 = st.columns(3)
 for i, feature in enumerate(row3_features):
     with cols_row3[i]:
         fig, ax = plt.subplots(figsize=(4, 3))
-        shap.plots.scatter(shap_explains[:, feature, 1], ax=ax, show=False)
-
+        shap.plots.scatter(shap_explains[:, feature, 1], ax=ax, color=colour_palettes3[i], hist=False, show=False)
         if feature == "Session_Duration_Avg":
             ax.axvline(x=20, color='crimson', linestyle='--', linewidth=1, label='20')
         elif feature == "Total_Purchases":
