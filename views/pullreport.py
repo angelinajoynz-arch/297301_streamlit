@@ -18,6 +18,8 @@ max_lifetime = d_val
 min_car = d_val; max_car = d_val;
 min_email = d_val; max_email = d_val; min_session = d_val; max_session = d_val;
 min_purchases = d_val; max_purchases = d_val;
+min_pages = d_val; max_pages = d_val;
+min_credit = d_val; max_credit = d_val;
 
 @st.cache_data
 def convert_df(dataframe):
@@ -42,6 +44,10 @@ min_session = absolute_vals['Session_Duration_Avg'][0][0]
 max_session = absolute_vals['Session_Duration_Avg'][0][1]
 min_purchases = absolute_vals['Total_Purchases'][0][0]
 max_purchases = absolute_vals['Total_Purchases'][0][1]
+min_pages = absolute_vals['Pages_Per_Session'][0][0]
+max_pages = absolute_vals['Pages_Per_Session'][0][1]
+min_credit = absolute_vals['Credit_Balance'][0][0]
+max_credit = absolute_vals['Credit_Balance'][0][1]
 
 available_risk_tiers = ['Low', 'Medium', 'High']
 available_filters = ['Cart Abandonment Rate', 'Lifetime Value', 'Total Purchases', 'Email Open Rate', 
